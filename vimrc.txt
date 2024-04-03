@@ -1,0 +1,66 @@
+
+
+" call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+call plug#begin()
+
+" Declare the list of plugins.
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/seoul256.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'frazrepo/vim-rainbow'
+
+Plug 'ironcamel/vim-script-runner'
+" List ends here. Plugins become visible to Vim after this call.
+"
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'itchyny/lightline.vim'
+
+" put parenthese in pair
+Plug 'jiangmiao/auto-pairs'
+
+" Use release branch (recommended)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main'  }
+Plug 'NLKNguyen/papercolor-theme'
+
+call plug#end()
+
+
+let g:script_runner_python = 'python3'
+
+let g:rainbow_active = 1
+map <F3>   :lnext<CR>
+
+
+set foldmethod=syntax
+
+nnoremap <space> za
+
+
+" for Python
+au BufNewFile,BufRead *.py
+  \ set foldmethod=indent
+
+au BufNewFile,BufRead *.py
+    \ set expandtab       |
+    \ set autoindent      |
+    \ set tabstop=4   |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 
+
+
+
+imap jj  <Esc>
+
+colorscheme embark
+
+" set background dark/light
+" set background=light
+" colorscheme PaperColor
+
+" This setup to highlight selection on coc.vim/ this is broken after embark
+" colorscheme
+"
+set termguicolors
